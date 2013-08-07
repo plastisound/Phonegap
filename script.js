@@ -1,26 +1,47 @@
-/*
 var map;
+
 function initialize() {
   var mapOptions = {
-    zoom: 10,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 15,
+    streetViewControl: false,
+    mapTypeControl: true,
+    mapTypeControlOptions: {
+      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+    mapTypeId: google.maps.MapTypeId.TERRAIN
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-*/
 
-  //Try HTML5 geolocation
-/*  
+  // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
+      /*var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Estas Aquí.'
+        content: 'Location found using HTML5.'
+      });*/
+        
+      var marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      draggable:true,
+      animation: google.maps.Animation.DROP,
       });
+        google.maps.event.addListener(marker, 'click', toggleBounce);
+        
+        function toggleBounce() {
+
+  if (marker.getAnimation() != null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
 
       map.setCenter(pos);
     }, function() {
@@ -50,24 +71,3 @@ function handleNoGeolocation(errorFlag) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-*/
-function initialize() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-}
-
-function loadScript() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&' +
-      'callback=initialize';
-  document.body.appendChild(script);
-}
-
-window.onload = loadScript;
