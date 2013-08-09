@@ -17,11 +17,12 @@
 				z-index: 2;
 			}
             #map-canvas { 
-                height: 200px; 
+                /*height: 200px; 
                 width:auto; 
                 background-color:#cccccc;
                 display:block;
-                position: fixed;
+                position: fixed;*/
+                height: 250px;
             
             }
 </style>
@@ -33,7 +34,7 @@
 		<script src="code/jquery.mobile-1.2.0.min.js"></script>
 		<script src="phonegap.js"></script>
 		<script type="text/javascript"  src="code/jqRotate.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDOLxs6p9Vot0HrNgVN-yJtMQ_vMQhEeMw&sensor=false"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOLxs6p9Vot0HrNgVN-yJtMQ_vMQhEeMw&sensor=true"></script>
         <script src="code/script.js"></script>
     <script>
 /*var map;
@@ -52,7 +53,7 @@ google.maps.event.addDomListener(window, 'load', initialize);*/
 
     </script>
 	</head>
-	<body >
+	<body onload="initialize()">
 		<!-- Start of first page I -->
 		<div data-role="page" id="page1">
 			<!-- Header -->
@@ -93,7 +94,7 @@ google.maps.event.addDomListener(window, 'load', initialize);*/
                     <img src="img/needle.png" id="needle" />
                     </div>
 				<p></p>
-				<div id="map-canvas" style="width:auto; height:200px; margin-top:210px; "></div>
+				<div id="map-canvas" style="height:250px; margin-top:210px; "></div>
 			</div>
 			</div>
 			<!-- /brujula -->
