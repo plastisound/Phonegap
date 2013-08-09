@@ -10,13 +10,8 @@ function initialize() {
     },
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-    google.maps.event.trigger(map,'resize');
-    
-    $(document).on("pageshow", "#map", function () {
-    initialize();
-});
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    google.maps.event.trigger(map, 'resize');
 
   // Try HTML5 geolocation
   if(navigator.geolocation) {
