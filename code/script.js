@@ -2,7 +2,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 10,
+    zoom: 12,
     streetViewControl: false,
     mapTypeControl: true,
     mapTypeControlOptions: {
