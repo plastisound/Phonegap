@@ -68,7 +68,7 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var marker = new google.maps.Marker(options);
+  //var marker = new google.maps.Marker(options);
   map.setCenter(options.position);
     google.maps.event.trigger(map, "resize");
 }
