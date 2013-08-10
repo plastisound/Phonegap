@@ -1,8 +1,8 @@
-var map;
+// var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 10,
+    zoom: 13,
     streetViewControl: false,
     mapTypeControl: true,
     mapTypeControlOptions: {
@@ -69,8 +69,8 @@ function handleNoGeolocation(errorFlag) {
   };
 
   //var marker = new google.maps.Marker(options);
-  map.setCenter(options.position);
     google.maps.event.trigger(map, "resize");
+  map.setCenter(options.position);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+ google.maps.event.addDomListener(window, 'load', initialize);
