@@ -2,7 +2,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 12,
+    zoom: 10,
     streetViewControl: false,
     mapTypeControl: true,
     mapTypeControlOptions: {
@@ -11,6 +11,7 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    
   
 
   // Try HTML5 geolocation
@@ -32,6 +33,7 @@ function initialize() {
       animation: google.maps.Animation.DROP,
       });
         google.maps.event.addListener(marker, 'click', toggleBounce);
+        google.maps.event.trigger(map, "resize");
         
         function toggleBounce() {
 
