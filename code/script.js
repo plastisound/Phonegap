@@ -33,7 +33,7 @@ function initialize() {
       animation: google.maps.Animation.DROP,
       });
         google.maps.event.addListener(marker, 'click', toggleBounce);
-        google.maps.event.trigger(map, "resize");
+//        google.maps.event.trigger(map, "resize");
         
         function toggleBounce() {
 
@@ -68,8 +68,9 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var infowindow = new google.maps.InfoWindow(options);
+  var marker = new google.maps.Marker(options);
   map.setCenter(options.position);
+    google.maps.event.trigger(map, "resize");
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
